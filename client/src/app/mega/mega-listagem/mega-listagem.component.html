@@ -1,0 +1,24 @@
+<div class="ui-g ui-fluid">
+  <div class="ui-g-12">
+    <div class="ui-md-2 float-right">
+      <button pButton type="button" icon="fa-plus" class="ui-button-info" (click)="cadastrar()" label="Cadastrar"></button>
+    </div>
+  </div>
+
+  <div class="ui-g-12">
+    <p-dataTable [value]="listagemMega" sortField="id" [responsive]="true" [immutable]="false">
+      <p-header>Listagem de Megas</p-header>
+
+      <p-column field="id" header="Id" [style]="{'width':'100px'}"></p-column>
+      <p-column field="nome" header="Nome" [filter]="true" filterPlaceholder="Search" filterMatchMode="contains"></p-column>
+      <p-column field="senha" header="Senha"></p-column>
+      <p-column styleClass="col-button" [style]="{'text-align':'center', 'width':'150px'}">
+        <ng-template pTemplate="header">Ações</ng-template>
+        <ng-template let-item="rowData" pTemplate="body">
+          <button type="button" pButton (click)="visualizar(item)" class="ui-button-success" icon="fa-eye"></button>
+          <button type="button" pButton (click)="deletar(item)" class="ui-button-danger" icon="fa-trash"></button>
+        </ng-template>
+      </p-column>
+    </p-dataTable>
+  </div>
+</div>

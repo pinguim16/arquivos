@@ -1,0 +1,13 @@
+float-right{
+    float: right;
+}
+
+width-10{
+    max-width: 10px;
+}
+
+.ui-button-icon-only {
+    border-radius: 5px !important;
+    max-width: 50px !important;
+    min-width: 20px !important;
+}

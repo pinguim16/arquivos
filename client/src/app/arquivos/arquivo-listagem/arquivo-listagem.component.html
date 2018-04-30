@@ -1,0 +1,32 @@
+<div class="ui-g ui-fluid">
+  <div class="ui-g-12">
+    <div class="ui-md-2 float-right">
+      <button pButton type="button" icon="fa-plus" class="ui-button-info" (click)="cadastrar()" label="Cadastrar"></button>
+    </div>
+  </div>
+
+  <div class="ui-g-12">
+    <p-dataTable [value]="listagemArquivo" sortField="id" [responsive]="true" [immutable]="false" [rows]="100" [paginator]="true"
+      [pageLinks]="3" [rowsPerPageOptions]="[50,100,2000]">
+      <p-header>Listagem de Megas - {{listagemArquivo.length}}</p-header>
+
+      <p-column field="id" header="Id" [style]="{'width':'50px'}" [sortable]="true"></p-column>
+      <p-column field="nome" header="Nome" [filter]="true" filterPlaceholder="Search" filterMatchMode="contains" [sortable]="true"></p-column>
+      <p-column field="senha" header="Senha" [style]="{'width':'350px'}"></p-column>
+      <p-column field="autor.nome" header="Autor" [filter]="true" filterPlaceholder="Search" filterMatchMode="contains" [sortable]="true"
+        [style]="{'width':'160px'}"></p-column>
+      <p-column styleClass="col-button" [style]="{'text-align':'center', 'width':'150px'}">
+        <ng-template pTemplate="header">Ações</ng-template>
+        <ng-template let-item="rowData" pTemplate="body">
+          <button type="button" pButton (click)="visualizar(item)" class="ui-button-success" icon="fa-eye"></button>
+          <button type="button" pButton (click)="deletar(item)" class="ui-button-danger" icon="fa-trash"></button>
+        </ng-template>
+      </p-column>
+    </p-dataTable>
+  </div>
+  <div class="ui-g-12">
+    <div class="ui-md-2 float-right">
+      <button pButton type="button" icon="fa-plus" class="ui-button-info" (click)="cadastrar()" label="Cadastrar"></button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<form class="ui-g ui-fluid" #form="ngForm" novalidate>
+  <div class="ui-g-12">
+    <p-fieldset legend="Cadastro de Autores">
+
+      <div class="ui-g-12 ui-md-12">
+        <label>Nome do autor</label>
+        <input type="text" name="nome" [(ngModel)]="autor.nome" ngModel class="form-control" pInputText/>
+      </div>
+
+      <div class="ui-g-12">
+        <div class="ui-g-6 ui-md-2 float-right">
+          <button pButton type="button" class="ui-button-danger" icon="fa-close" label="Cancelar" (click)="cancelar()"></button>
+        </div>
+        <div class="ui-g-6 ui-md-2 float-right">
+          <button pButton type="button" class="ui-button-success" icon="fa-floppy-o" label="Salvar" (click)="salvar(form)"></button>
+        </div>
+      </div>
+    </p-fieldset>
+  </div>
+</form>

@@ -1,0 +1,55 @@
+<form class="ui-g ui-fluid" #form="ngForm" novalidate>
+  <div class="ui-g-12">
+    <p-fieldset legend="Cadastro do Arquivo">
+
+      <div class="ui-g-12 ui-md-12">
+        <label>Nome do Arquivo</label>
+        <input type="text" name="nome" (keyup.enter)="salvar(form)" [(ngModel)]="arquivo.nome" ngModel class="form-control" pInputText/>
+      </div>
+
+      <div class="ui-g-12 ui-md-12">
+        <label>Senha do Arquivo</label>
+        <input type="text" name="senha" (keyup.enter)="salvar(form)" [(ngModel)]="arquivo.senha" ngModel class="form-control" pInputText/>
+      </div>
+
+      <div class="ui-g-12 ui-md-12">
+        <label>Link Download</label>
+        <input type="text" name="linkDownload" (keyup.enter)="salvar(form)" [(ngModel)]="arquivo.linkDownload" ngModel class="form-control"
+          pInputText/>
+      </div>
+
+      <div class="ui-g-12 ui-md-12">
+        <label>Tamanho (GB)</label>
+        <input type="number" name="tamanho" (keyup.enter)="salvar(form)" [(ngModel)]="arquivo.tamanho" ngModel class="form-control"
+          pInputText/>
+      </div>
+
+      <div class="ui-g-12 ui-md-12" *ngIf="arquivo.mega != null">
+        <label>Armazenado no Mega</label>
+        <p-dropdown [options]="listaMega" (keyup.enter)="salvar(form)" [(ngModel)]="arquivo.mega.id" name="mega" ngModel class="form-control"
+          [style]="{'width':'550px'}"></p-dropdown>
+      </div>
+
+      <div class="ui-g-12 ui-md-12" *ngIf="arquivo.megaBackup != null">
+        <label>Backup no Mega</label>
+        <p-dropdown [options]="listaMega" (keyup.enter)="salvar(form)" [(ngModel)]="arquivo.megaBackup.id" name="megaBackup" ngModel
+          class="form-control" [style]="{'width':'550px'}"></p-dropdown>
+      </div>
+
+      <div class="ui-g-12 ui-md-12" *ngIf="arquivo.autor != null">
+        <label>Autor</label>
+        <p-dropdown [options]="listaAutor" (keyup.enter)="salvar(form)" [(ngModel)]="arquivo.autor.id" name="autor" ngModel class="form-control"
+          [style]="{'width':'550px'}"></p-dropdown>
+      </div>
+
+      <div class="ui-g-12">
+        <div class="ui-g-6 ui-md-2 float-right">
+          <button pButton type="button" class="ui-button-danger" icon="fa-close" label="Cancelar" (click)="cancelar()" autoWidth="true"></button>
+        </div>
+        <div class="ui-g-6 ui-md-2 float-right">
+          <button pButton type="button" class="ui-button-success" icon="fa-floppy-o" label="Salvar" (click)="salvar(form)" autoWidth="true"></button>
+        </div>
+      </div>
+    </p-fieldset>
+  </div>
+</form>
